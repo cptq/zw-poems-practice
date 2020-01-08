@@ -7,7 +7,7 @@ import sys
 import random
 import os
 
-poems = ['']*20
+poems = ['']*14
 
 poems[1] = '''  梦与诗
 醉过才知酒浓
@@ -113,7 +113,13 @@ if __name__ == '__main__':
         to_omit = int(sys.argv[2])
     else:
         to_omit = 10
+
+    assert k > 0 and k < len(poems), \
+        f"poem number must be between 1 and {len(poems)-1}"
+
     p = poems[k]
+    assert p, "poem not yet supported"
+
     orig_p = p
     count = 0
     while to_omit > 0 and count < 3000:
